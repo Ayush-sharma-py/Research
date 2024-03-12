@@ -25,8 +25,8 @@ X_test_1 = ss_train.fit_transform(X_test_1)
 X_test_2 = ss_train.fit_transform(X_test_2)
 
 # Defining the model
-modelForest = IsolationForest(n_estimators=10)
-modelElliptical = EllipticEnvelope(contamination = 0.0021)
+modelForest = IsolationForest(n_estimators = 10)
+modelElliptical = EllipticEnvelope(contamination=0.18)
 
 # Fit the classifier
 modelForest.fit(X_train)
@@ -47,15 +47,14 @@ resultForest2[resultForest2 == 1] = 0
 resultForest2[resultForest2 == -1] = 1
 
 resultElliptical[resultElliptical == 1] = 0
-resultElliptical2[resultElliptical2 == -1] = 1
+resultElliptical[resultElliptical == -1] = 1
 
-resultElliptical[resultElliptical == 1] = 0
+resultElliptical2[resultElliptical2 == 1] = 0
 resultElliptical2[resultElliptical2 == -1] = 1
 
 # Calculating the metrics
 accuracy, precision, recall = [], [], []
 index = ["Forest1", "Forest2", "Elliptical1", "Elliptical2"]
-
 
 accuracy.append(accuracy_score(resultForest, Y_test_1))
 precision.append(precision_score(resultForest, Y_test_1))

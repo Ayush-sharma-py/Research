@@ -26,7 +26,7 @@ X_test_2 = ss_train.fit_transform(X_test_2)
 
 # Defining the model
 modelForest = IsolationForest(n_estimators = 10)
-modelElliptical = EllipticEnvelope(contamination=0.18)
+modelElliptical = EllipticEnvelope(contamination = 0.18)
 
 # Fit the classifier
 modelForest.fit(X_train)
